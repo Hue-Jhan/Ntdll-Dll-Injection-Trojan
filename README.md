@@ -42,17 +42,15 @@ Extracting the dll and uploading to disk is risky, in the future i will upload i
 
 # 🛡 AV Detection
 
-The raw Dll gets like 5 detections, if i upload the metadata and resources of another library such as ntdll itself, the detections drop to 1. <img align="right" src="media/nt-dll-crypt-reshacked.png" width="350" />
+The raw Dll gets like 5 detections,  <img align="right" src="media/nt-dll-crypt-reshacked.png" width="350" /> if i upload the metadata and resources of another library such as ntdll itself, the detections drop to 1.
 
 The raw exe file is currently undetected by windows defender but gets blocked by Bitdefender (even the free trial, yes bitdefender is the best av in my opinion, only behind crowdstrike). 
 
-On virus total it gets 11 detections and as usual it doesn't show bitdefender flagging it.
-
-<img align="right" src="media/nt-dll-inj.png" width="350" />
+On virus total it gets 11 detections and as usual it doesn't show bitdefender flagging it. <img align="right" src="media/nt-dll-inj.png" width="350" />
 
 If i obfuscate the file even more with Resource Hacker by inserting the metadata of another well known software like shotcut, the detections drop to 8/9 on virus total. 
 
-<img align="right" src="media/nt-dll-inj-reshacked-shotcut.png" width="350" />
-
-
 You can obfuscate it even more using tools like soggoth, or by turning it into an msi or iso file.
+
+
+<img align="right" src="media/nt-dll-inj-reshacked-shotcut.png" width="350" />
