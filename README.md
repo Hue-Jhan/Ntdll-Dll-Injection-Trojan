@@ -52,6 +52,4 @@ On virus total it gets 11 detections and as usual it doesn't show bitdefender fl
 
 If i obfuscate the file even more with Resource Hacker by inserting the metadata of another well known software like shotcut, the detections drop to 8/9 on virus total. 
 
-You can obfuscate it even more using tools like soggoth, or by turning it into an msi or iso file.
-
-<img align="right" src="media/nt-dll-inj-reshacked-shotcut.png" width="350" />
+You can obfuscate it even more using tools like soggoth, or by turning it into an msi or iso file. <img align="right" src="media/nt-dll-inj-reshacked-shotcut.png" width="400" />
