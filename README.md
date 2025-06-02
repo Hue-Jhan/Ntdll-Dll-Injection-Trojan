@@ -28,7 +28,7 @@ We get a handle to ntdll and we dynamically resolve its functions both in the DL
 
 ### 2.2) Injector:
 
-The injector loads the dynamic library onto disk, looks for a specific process and injects the library into it:
+The injector loads the dynamic library onto disk, looks for a specific process and injects the library into it, remember to disable pre compiled headers like phc before compiling:
 
 - First of all we put the malicious dll in the same folder as the injector, we create a resource file and its header and we set the dll as a resource of the injector;
 - Secondly on the injector we locate the resource file, calculate its size, upload it to memory, and lock it for access so it can be used without being moved;
