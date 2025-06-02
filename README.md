@@ -5,7 +5,7 @@ This code is for educational purposes only, do not use it for any malicious or u
 
 
 # 💻 Code
-Similarly to [this malware](https://github.com/Hue-Jhan/Ntdll-Process-inj-Trojan) i made, this one calls dynamically resolved functions from ntdll.dll, reducing static IAT footprint, it basically retrieves addresses of native api functions at runtime and uses them to inject a malicious dynamic link library in a target process, the library will upload shellcode into that process.
+Similarly to [this malware](https://github.com/Hue-Jhan/Ntdll-Process-inj-Trojan) i made, this one calls dynamically resolved functions from ntdll.dll, reducing static IAT footprint, it basically retrieves addresses of native api functions at runtime and calls them via a pre-made function pointer to inject a malicious dynamic link library in a target process, the library will upload shellcode into that process.
 
 ### 1) Listener and encrypted payload
 
@@ -33,7 +33,8 @@ The injector loads the dynamic library onto disk, looks for a specific process a
 - First of all we put the malicious dll in the same folder as the injector, we create a resource file and its header and we set the dll as a resource of the injector;
 - Secondly on the injector we locate the resource file, calculate its size, upload it to memory, and lock it for access so it can be used without being moved;
 - Thirdly we extract the dll from the executable and write it to disk;
-- We find a process by PID, allocate memory the size of the dll path inside of it and write the path into the process;
+- We find a process by PID iterating through a pre-made linked list of ```SYSTEM_PROCESS_INFORMATION``` structs representing all running processes;
+- We allocate memory the size of the dll path inside of it and write the path into the process;
 - Then we get the handle to kernel32.dll and ntdll.dll and dynamically resolve the address of LoadLibraryA;
 - Finally we create a thread that executes the function that loads the malicious dll;
 - The Dll decodes the data and uploads it to memory, creating the shell;
