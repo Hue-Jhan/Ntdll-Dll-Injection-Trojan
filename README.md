@@ -35,7 +35,7 @@ The injector loads the dynamic library onto disk, looks for a specific process a
 - Thirdly we extract the dll from the executable and write it to disk;
 - We find a process by PID iterating through a pre-made linked list of ```SYSTEM_PROCESS_INFORMATION``` structs representing all running processes;
 - We allocate memory the size of the dll path inside of it and write the path into the process;
-- Then we get the handle to kernel32.dll and ntdll.dll and dynamically resolve the address of LoadLibraryA;
+- Then we get the handle to kernel32.dll and ntdll.dll and dynamically resolve the address of LoadLibraryA using ```LdrGetProcedureAddress```;
 - Finally we create a thread that executes the function that loads the malicious dll;
 - The Dll decodes the data and uploads it to memory, creating the shell;
 
